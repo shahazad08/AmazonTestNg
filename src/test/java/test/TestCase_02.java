@@ -2,12 +2,13 @@ package test;
 
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.WebDriver;
+import base.Base;
 
-public class TestCase_02 {
 
+public class TestCase_02 extends Base {
+	static WebDriver driver=setup();
 	public static void main(String[] args) {
-		WebDriver driver=new ChromeDriver();
-		driver.get("https://www.amazon.in/");
+		
 		if(driver.getTitle().contains("Amazon.in"))
 			System.out.println("Title Matches");
 		else 

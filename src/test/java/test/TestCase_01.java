@@ -4,12 +4,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
-public class TestCase_01 {
+import base.Base;
+
+public class TestCase_01 extends Base {
+	static WebDriver driver=setup();
 	
-	@Test
-	public void test1() {
-		WebDriver driver=new ChromeDriver();
-		driver.get("https://www.amazon.in/");
+	public static void main(String args[]) {
 		String url=driver.getCurrentUrl();
 		if(url.contains("https://www.amazon.in/")) {
 			System.out.println("Url Matchs");
@@ -17,5 +17,6 @@ public class TestCase_01 {
 		else {
 			System.out.println("Url doesnt match");
 		}
+		driver.close();
 	}
 }
