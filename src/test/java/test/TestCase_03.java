@@ -2,26 +2,29 @@ package test;
 
 import java.time.Duration;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
+
+import base.AmazonHomePage;
 import base.Base;
 
 public class TestCase_03 extends Base{
-	static WebDriver driver=setup();
+	static WebDriver ldriver=setup();
 
 	public static void main(String[] args) {
-		WebElement cart=driver.findElement(By.id("nav-cart"));
-		cart.click();
+//		WebElement cart=driver.findElement(By.id("nav-cart"));
+//		cart.click();
+//		
+		AmazonHomePage home=new AmazonHomePage(ldriver);
+		home.openCart();
 		
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+		ldriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 			
-			if(driver.getTitle().contains("Shopping Cart"))
+			if(ldriver.getTitle().contains("Shopping Cart"))
 				System.out.println("Title Passed");
 			else 
 				System.out.println("Title Failed");
-			driver.quit();
+			ldriver.quit();
 		
 		// TODO Auto-generated method stub
 
