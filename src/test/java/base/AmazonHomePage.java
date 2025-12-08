@@ -4,6 +4,7 @@ import java.time.Duration;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -34,6 +35,15 @@ public class AmazonHomePage {
 	
 	@FindBy(id="glow-ingress-line2")
 	WebElement locationPinCode;
+	
+	// Test case 5
+	@FindBy(xpath="(//*[@data-nav-role='signin'])[1]")
+	WebElement accountsAndList;
+	
+	@FindBy(xpath="(//*[@data-nav-role='signin'])[2]")
+	WebElement signInButton;
+	
+	
 	// Action Methods
 	
 	//TC 3
@@ -57,6 +67,27 @@ public class AmazonHomePage {
 		System.out.println(locationPinCode.getText());
 		return locationPinCode.getText();
 		
+	}
+	
+	public void moveToSignInOption() {
+		Actions actions=new Actions(driver);
+		actions.moveToElement(accountsAndList).perform();
+	}
+	
+	// TC5
+	public void clickSignIn() throws InterruptedException {
+		WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(5));
+		wait.until(ExpectedConditions.visibilityOf(accountsAndList));
+		signInButton.click();
+		Thread.sleep(2000);
+		//System.out.println(driver.getCurrentUrl());
+	}
+	
+	public String  validateUrl() {
+		String currentURL = driver.getCurrentUrl();
+		String cleanURL = currentURL.split("\\?")[0];
+		System.out.println(cleanURL);
+		return cleanURL;
 	}
 	
 }
