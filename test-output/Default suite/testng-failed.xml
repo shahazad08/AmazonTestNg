@@ -5,15 +5,7 @@
     <classes>
       <class name="test.TestCase_03">
         <methods>
-          <include name="afterTest"/>
-          <include name="beforeSuite"/>
           <include name="setup"/>
-          <include name="afterMethod"/>
-          <include name="beforeTest"/>
-          <include name="beforeClass"/>
-          <include name="beforeMethod"/>
-          <include name="afterSuite"/>
-          <include name="afterClass"/>
           <include name="test3"/>
         </methods>
       </class> <!-- test.TestCase_03 -->

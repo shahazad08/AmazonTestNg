@@ -7,9 +7,10 @@ import org.testng.annotations.Test;
 import base.Base;
 
 public class TestCase_01 extends Base {
-	static WebDriver driver=setup();
+//	static WebDriver driver=setup();
 	
-	public static void main(String args[]) {
+		@Test
+		public void test1() {
 		String url=driver.getCurrentUrl();
 		if(url.contains("https://www.amazon.in/")) {
 			System.out.println("Url Matchs");
@@ -17,6 +18,6 @@ public class TestCase_01 extends Base {
 		else {
 			System.out.println("Url doesnt match");
 		}
-		driver.close();
+//		driver.close();
 	}
 }
