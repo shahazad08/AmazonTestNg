@@ -8,10 +8,10 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import base.AmazonHomePage;
 import base.Base;
-import base.CartPage;
-import base.ProductDetailsPage;
+import pageObjects.AmazonHomePage;
+import pageObjects.CartPage;
+import pageObjects.ProductDetailsPage;
 
 
 //Test_Case_06

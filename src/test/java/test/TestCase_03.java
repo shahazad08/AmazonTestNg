@@ -13,8 +13,8 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import base.AmazonHomePage;
 import base.Base;
+import pageObjects.AmazonHomePage;
 
 public class TestCase_03 extends Base{
 	//static WebDriver ldriver;

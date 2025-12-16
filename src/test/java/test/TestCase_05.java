@@ -3,8 +3,8 @@ package test;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import base.AmazonHomePage;
 import base.Base;
+import pageObjects.AmazonHomePage;
 
 public class TestCase_05 extends Base {
 public AmazonHomePage home;
