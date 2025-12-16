@@ -4,12 +4,15 @@ import java.util.Iterator;
 import java.util.Set;
 
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import base.AmazonHomePage;
 import base.Base;
+import base.CartPage;
 import base.ProductDetailsPage;
+
 
 //Test_Case_06
 //# Steps
@@ -27,11 +30,13 @@ public class TestCase_06 extends Base {
 	
 	AmazonHomePage home;
 	ProductDetailsPage product;
+	CartPage cart;
 	
 	@BeforeClass
 	public void preTest() {
 		home=new AmazonHomePage(driver);
 		product=new ProductDetailsPage(driver);
+		cart=new CartPage(driver);
 	}
 	
 	@Test
@@ -59,6 +64,19 @@ public class TestCase_06 extends Base {
 		//  6. Add the product to the cart.
 		product.addToCart();
 		Thread.sleep(2000);
+		
+		//# 7. Come back to the main window and click on the cart option
+		driver.switchTo().window(parentWindow);
+		home.openCart();
+		driver.navigate().refresh();
+		
+		//8. Validate if the product is there in the cart using product text. (Put validation)
+		String productNameCart=cart.getProductName();
+		System.out.println(productNameCart);
+		
+		//9. Make the test Case Pass else Fail
+		Assert.assertTrue(productName.contains(productNameCart));
+		
 		
 		
 	}
