@@ -1,6 +1,7 @@
 package base;
 
 import java.time.Duration;
+import java.util.List;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -43,6 +44,15 @@ public class AmazonHomePage {
 	@FindBy(xpath="(//*[@data-nav-role='signin'])[2]")
 	WebElement signInButton;
 	
+	// Test case 6
+	@FindBy(xpath="//*[@id='twotabsearchtextbox']")
+	WebElement search;
+	
+	@FindBy(id="nav-search-submit-button")
+	WebElement btnSearch;
+	
+	@FindBy(xpath="//*[@role='listitem']")
+	List<WebElement> productList;
 	
 	// Action Methods
 	
@@ -88,6 +98,20 @@ public class AmazonHomePage {
 		String cleanURL = currentURL.split("\\?")[0];
 		System.out.println(cleanURL);
 		return cleanURL;
+	}
+
+	public void search(String searchText) {
+		search.sendKeys(searchText);
+		btnSearch.click();
+		
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void openProductDetailsFromList(int index) {
+		productList.get(index).click();;
+		// TODO Auto-generated method stub
+		
 	}
 	
 }
