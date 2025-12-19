@@ -15,6 +15,18 @@ import org.testng.annotations.Test;
 
 import base.Base;
 import pageObjects.AmazonHomePage;
+/*
+ * //TestCase_03 – Validate the Cart page.
+//# Steps
+//# 1. Launch Chrome browser.
+//# 3. Launch URL https://www.amazon.in
+//# 4. Click on the Cart option, (right top corner)
+//# 5. Wait for the page to load. (Use explicit or implicit wait)
+//# 6. Capture page title.
+//# 7. if 'Shopping Cart' is there in the page title, test passed, else fail.
+//# 8. Close the browser.
+
+ */
 
 public class TestCase_03 extends Base{
 	//static WebDriver ldriver;

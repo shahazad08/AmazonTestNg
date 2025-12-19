@@ -9,6 +9,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class AmazonHomePage {
@@ -53,6 +54,10 @@ public class AmazonHomePage {
 	
 	@FindBy(xpath="//*[@role='listitem']")
 	List<WebElement> productList;
+	
+	// Test Case 8
+	@FindBy(id="searchDropdownBox")
+	WebElement dd_search;
 	
 	
 	// Action Methods
@@ -104,13 +109,23 @@ public class AmazonHomePage {
 	public void search(String searchText) {
 		search.sendKeys(searchText);
 		btnSearch.click();
-		
 		// TODO Auto-generated method stub
-		
 	}
 
 	public void openProductDetailsFromList(int index) {
 		productList.get(index).click();
+		// TODO Auto-generated method stub
+		
+	}
+
+	// TC 8
+	public void dropDownOperations() {
+		dd_search.click();
+		Select select=new Select(dd_search);
+		System.out.println("Count is"+select.getOptions().size());
+		System.out.println("4th Options is"+select.getOptions().get(3).getText());
+		select.selectByVisibleText("Electronics");
+		
 		// TODO Auto-generated method stub
 		
 	}
