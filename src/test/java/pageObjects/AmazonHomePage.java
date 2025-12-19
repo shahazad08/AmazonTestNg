@@ -54,6 +54,7 @@ public class AmazonHomePage {
 	@FindBy(xpath="//*[@role='listitem']")
 	List<WebElement> productList;
 	
+	
 	// Action Methods
 	
 	//TC 3
@@ -109,9 +110,11 @@ public class AmazonHomePage {
 	}
 
 	public void openProductDetailsFromList(int index) {
-		productList.get(index).click();;
+		productList.get(index).click();
 		// TODO Auto-generated method stub
 		
 	}
+
+
 	
 }
