@@ -59,6 +59,20 @@ public class AmazonHomePage {
 	@FindBy(id="searchDropdownBox")
 	WebElement dd_search;
 	
+	//Test Case 9
+	@FindBy(className="icp-language-link")
+	WebElement dd_language;
+	
+	@FindBy(xpath="//*[@value=\"hi_IN\"]/following-sibling::i")
+	WebElement hi_language;
+	
+	@FindBy(className="a-button-input")
+	WebElement btnSaveLanguageChanges;
+	
+	@FindBy(tagName="html")
+	WebElement html_tag;
+	
+	
 	
 	// Action Methods
 	
@@ -128,6 +142,17 @@ public class AmazonHomePage {
 		
 		// TODO Auto-generated method stub
 		
+	}
+
+	public void changeLanguage() {
+		dd_language.click();
+		hi_language.click();
+		btnSaveLanguageChanges.click();
+		// TODO Auto-generated method stub
+	}
+	
+	public String getLanguage() {
+		return html_tag.getAttribute("lang");
 	}
 
 
