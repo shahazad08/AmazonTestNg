@@ -43,7 +43,6 @@ public class TestCase_08 extends Base {
 		
 		//# 8. Validate Page title contains 'laptop'
 		Assert.assertTrue(driver.getTitle().contains("Laptop"));
-
 	}
 	
 }
