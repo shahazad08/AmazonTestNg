@@ -7,8 +7,8 @@
         <methods>
           <include name="tearDown"/>
           <include name="setup"/>
-          <include name="test09"/>
           <include name="preTest"/>
+          <include name="test09"/>
         </methods>
       </class> <!-- test.TestCase_09 -->
     </classes>

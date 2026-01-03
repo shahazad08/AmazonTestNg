@@ -63,16 +63,17 @@ public class AmazonHomePage {
 	@FindBy(className="icp-language-link")
 	WebElement dd_language;
 	
-	@FindBy(xpath="//*[@value=\"hi_IN\"]/following-sibling::i")
-	WebElement hi_language;
+	@FindBy(xpath="//*[contains(@value,\"_IN\")]/following-sibling::i")
+	List<WebElement> cb_languages;
+	
+	@FindBy(xpath="//*[contains(@value,\"_IN\")]")
+	List<WebElement> lbl_languages;
 	
 	@FindBy(className="a-button-input")
 	WebElement btnSaveLanguageChanges;
 	
 	@FindBy(tagName="html")
 	WebElement html_tag;
-	
-	
 	
 	// Action Methods
 	
@@ -144,17 +145,20 @@ public class AmazonHomePage {
 		
 	}
 
-	public void changeLanguage() {
+	public void changeLanguage(String lang) {
 		dd_language.click();
-		hi_language.click();
-		btnSaveLanguageChanges.click();
+		
+		for(int i=0;i<=cb_languages.size()-1;i++) {
+			if(lbl_languages.get(i).getAttribute("value").contains(lang)) {
+				cb_languages.get(i).click();
+				btnSaveLanguageChanges.click();
+			}
+		}
 		// TODO Auto-generated method stub
 	}
 	
 	public String getLanguage() {
 		return html_tag.getAttribute("lang");
 	}
-
-
 	
 }
