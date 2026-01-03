@@ -42,12 +42,15 @@ public class TestCase_09 extends Base {
 		
 		 //# 5. Add an assertion to make sure the language of the page has been changed to the selected language
 		Assert.assertTrue(home.getLanguage().contains("hi"));
+		Thread.sleep(3000);
 		
 		//# 6. Now again go to the bottom of the home page
 		js.executeScript("window.scrollBy(0, document.body.scrollHeight)");
+		Thread.sleep(3000);
 		
 		 //# 7. Click on the language select element and select English language
 		home.changeLanguage("en");
+		Thread.sleep(2000);
 		
 		 //# 8. Add an assertion to make sure the language of the page has been changed back to the English language
 		Assert.assertTrue(home.getLanguage().contains("en"));

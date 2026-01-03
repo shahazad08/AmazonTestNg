@@ -145,19 +145,22 @@ public class AmazonHomePage {
 		
 	}
 
-	public void changeLanguage(String lang) {
+	public void changeLanguage(String lang) throws InterruptedException {
 		dd_language.click();
 		
 		for(int i=0;i<=cb_languages.size()-1;i++) {
+			Thread.sleep(1000);
 			if(lbl_languages.get(i).getAttribute("value").contains(lang)) {
 				cb_languages.get(i).click();
 				btnSaveLanguageChanges.click();
+				Thread.sleep(1000);
 			}
 		}
 		// TODO Auto-generated method stub
 	}
 	
-	public String getLanguage() {
+	public String getLanguage() throws InterruptedException {
+		Thread.sleep(1000);
 		return html_tag.getAttribute("lang");
 	}
 	
