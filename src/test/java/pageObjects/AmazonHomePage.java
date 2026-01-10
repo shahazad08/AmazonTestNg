@@ -3,6 +3,7 @@ package pageObjects;
 import java.time.Duration;
 import java.util.List;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -81,6 +82,10 @@ public class AmazonHomePage {
 	
 	@FindBy(xpath="//*[text()='Limited time deal'][@class='a-badge-text']/ancestor::div[6]/div[1]/a/h2/span")
 	List<WebElement> lbl_limitedTimeDealProduct;
+	
+	//Test Case 11
+	@FindBy(xpath="//*[@class='navFooterDescItem']/a")
+	List<WebElement> footersLists;
 	
 	// Action Methods
 	
@@ -177,6 +182,35 @@ public class AmazonHomePage {
 		Thread.sleep(1000);
 		return lbl_limitedTimeDealProduct.get(0).getText();
 		// TODO Auto-generated method stub
+	}
+	
+	public void scrollToEnd() {
+		JavascriptExecutor js=(JavascriptExecutor)driver;
+		js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
+	}
+
+	public void validateFooterUrls() throws InterruptedException {
+		scrollToEnd();
+		System.out.println("Diverts");
+		Thread.sleep(1000);
+		
+		for(int i=0;i<footersLists.size();i++) {
+			String href=footersLists.get(i).getAttribute("href");
+			System.out.println(href);
+			footersLists.get(i).click();
+			Thread.sleep(1000);
+			System.out.println(driver.getCurrentUrl());
+			if(driver.getCurrentUrl().contains(href)) {
+				System.out.println(i + " " + "URL Matches");
+			}
+			else {
+				System.out.println(i + " " + "URL Not Matches");
+			}
+			driver.navigate().back();
+		}
+		
+		// TODO Auto-generated method stub
+		
 	}
 	
 }
