@@ -75,6 +75,13 @@ public class AmazonHomePage {
 	@FindBy(tagName="html")
 	WebElement html_tag;
 	
+	// Test Case 10
+	@FindBy(xpath="//*[text()='Limited time deal'][@class='a-badge-text']")
+	List<WebElement> badge_LimitedTimeDeal;
+	
+	@FindBy(xpath="//*[text()='Limited time deal'][@class='a-badge-text']/ancestor::div[6]/div[1]/a/h2/span")
+	List<WebElement> lbl_limitedTimeDealProduct;
+	
 	// Action Methods
 	
 	//TC 3
@@ -162,6 +169,14 @@ public class AmazonHomePage {
 	public String getLanguage() throws InterruptedException {
 		Thread.sleep(1000);
 		return html_tag.getAttribute("lang");
+	}
+
+	public String  getLimitedTimeDealProductName() throws InterruptedException {
+		Actions action=new Actions(driver);
+		action.scrollToElement(badge_LimitedTimeDeal.get(0));
+		Thread.sleep(1000);
+		return lbl_limitedTimeDealProduct.get(0).getText();
+		// TODO Auto-generated method stub
 	}
 	
 }
